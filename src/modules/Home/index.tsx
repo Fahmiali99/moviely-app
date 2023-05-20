@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
-import { getPopular } from "@/lib/Popular/fetchApi";
+import { getPopular } from "@/lib/popular/fetchApi";
 import { setPopular } from "@/store/popular";
+import Banner from "./detail/banner";
+import Upcoming from "./detail/upcoming";
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -14,7 +16,12 @@ function HomePage() {
   }, [dispatch]);
 
   console.log(popular);
-  return <div>HomePage</div>;
+  return (
+    <div>
+      <Banner />
+      <Upcoming />
+    </div>
+  );
 }
 
 export default HomePage;

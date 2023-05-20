@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import popularReducer from "./popular"; // Assuming you have a "popular" reducer file
+import popular from "./popular";
 
 export const store = configureStore({
   reducer: {
-    popular: popularReducer,
+    popular: popular,
   },
 });
 

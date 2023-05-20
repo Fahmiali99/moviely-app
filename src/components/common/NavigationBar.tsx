@@ -1,104 +1,222 @@
-import React, { useState } from "react";
+import { useRouter } from "next/router";
+import React, { useState, useEffect } from "react";
+import logo from "@/../../public/assets/netflix.png";
+import Image from "next/image";
+import { RxHamburgerMenu } from "react-icons/rx";
+import {
+  IoIosSearch,
+  IoMdNotificationsOutline,
+  IoMdArrowDropdown,
+} from "react-icons/io";
 
 function NavigationBar() {
   const [open, setOpen] = useState(false);
+  const [drop, setDrop] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const router = useRouter();
 
   const handleOpen = () => {
     setOpen(!open);
   };
-  return (
-    <div>
-      <nav className=" bg-white border-gray-200 dark:bg-gray-900">
-        <div className="px-4 md:px-16 ">
-          <div className="  max-w-full flex flex-wrap items-center justify-between mx-auto py-4">
-            <a href="https://flowbite.com/" className="flex items-center">
-              <img
-                src="https://flowbite.com/docs/images/logo.svg"
-                className="h-8 mr-3"
-                alt="Flowbite Logo"
-              />
-              <span className="self-center text-black text-2xl font-semibold whitespace-nowrap dark:text-white">
-                Flowbite
-              </span>
-            </a>
-            <button
-              onClick={handleOpen}
-              data-collapse-toggle="navbar-default"
-              type="button"
-              className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-              aria-controls="navbar-default"
-              aria-expanded="false"
-            >
-              <span className="sr-only">Open main menu</span>
-              <svg
-                className="w-6 h-6"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
-            </button>
 
-            <div
-              className={`w-full md:block md:w-auto ${
-                open ? "block" : "hidden"
-              }`}
-              id="navbar-default"
-            >
-              <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-                    aria-current="page"
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleMouseEnter = () => {
+    setDrop(true);
+  };
+
+  const handleMouseLeave = () => {
+    setDrop(false);
+  };
+
+  const menu = [
+    {
+      name: "Beranda",
+      href: "/",
+    },
+    {
+      name: "Acara TV",
+      href: "#",
+    },
+    {
+      name: "Film",
+      href: "#",
+    },
+    {
+      name: "Baru & Populer",
+      href: "#",
+    },
+    {
+      name: "Daftar Saya",
+      href: "#",
+    },
+    {
+      name: "Telusuri menurut Bahasa",
+      href: "#",
+    },
+  ];
+
+  const alerts = [
+    {
+      Icons: IoIosSearch,
+    },
+    {
+      Icons: IoMdNotificationsOutline,
+    },
+  ];
+
+  const accounts = [
+    {
+      name: "Akun",
+      href: "#",
+    },
+    {
+      name: "Keluar",
+      href: "#",
+    },
+  ];
+
+  return (
+    <nav
+      className={`fixed w-full duration-500 ease-in-out ${
+        scrolled ? "bg-dark text-white" : "text-white"
+      }`}
+    >
+      {!scrolled && (
+        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-dark to-dark opacity-30" />
+      )}
+      <div className="relative">
+        <div className=" px-4 md:px-16 max-w-full flex flex-wrap items-center justify-between mx-auto py-4">
+          <div className="flex">
+            <a href="https://flowbite.com/" className="flex items-center mr-10">
+              <Image src={logo} width={100} alt="Flowbite Logo" />
+            </a>
+
+            <div className={`w-full md:block md:w-auto hidden`}>
+              <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0 ">
+                {menu.map((item, idx) => (
+                  <li
+                    key={idx}
+                    className={
+                      router.pathname === item.href
+                        ? "active   font-bold"
+                        : " font-normal "
+                    }
                   >
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
-                    Services
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
-                    Pricing
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
-                    Contact
-                  </a>
-                </li>
+                    <a
+                      href={item.href}
+                      className="block py-2 pl-3 pr-4  rounded  md:p-0 "
+                      aria-current="page"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
+
+          <div className="flex items-center">
+            <button
+              onClick={handleOpen}
+              className="inline-flex items-center p-2 ml-3 text-sm text-black rounded-lg md:hidden bg-gray-100 "
+            >
+              <RxHamburgerMenu />
+            </button>
+            <div className="flex items-center ">
+              {alerts.map((item, idx) => (
+                <div key={idx} className="mr-5">
+                  <item.Icons className=" text-2xl" />
+                </div>
+              ))}
+              <div
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <button
+                  onClick={handleOpen}
+                  className="flex items-center"
+                  type="button"
+                >
+                  <div className="m w-9 h-9 rounded-lg bg-slate-500 mr-1"></div>
+                  <IoMdArrowDropdown className="" />
+                </button>
+
+                {drop && (
+                  <div
+                    className={`absolute right-5 bg-darks px-3  py-2 rounded-lg $`}
+                  >
+                    <div
+                      id="dropdownHover"
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                      className={`z-10  bg-dark divide-y divide-gray-900 rounded-lg shadow w-44 dark:bg-gray-700 `}
+                    >
+                      {open && (
+                        <ul
+                          className="py-2 text-sm text-white dark:text-gray-200"
+                          aria-labelledby="dropdownHoverButton"
+                        >
+                          {accounts.map((item, idx) => (
+                            <li key={idx}>
+                              <a
+                                href={item.href}
+                                className="block px-4 py-2 hover:bg-gray-800 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                {item.name}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div
+            className={`w-full  md:w-auto ${
+              open ? "block md:hidden" : "hidden"
+            }`}
+          >
+            <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0 ">
+              {menu.map((item, idx) => (
+                <li
+                  key={idx}
+                  className={
+                    router.pathname === item.href
+                      ? "active font-bold"
+                      : " font-normal "
+                  }
+                >
+                  <a
+                    href={item.href}
+                    className="block py-2 pl-3 pr-4  rounded  md:p-0 "
+                    aria-current="page"
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 }
 
