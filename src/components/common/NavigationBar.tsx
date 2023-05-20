@@ -9,8 +9,8 @@ function NavigationBar() {
   return (
     <div>
       <nav className=" bg-white border-gray-200 dark:bg-gray-900">
-        <div className=" px-10 ">
-          <div className=" bg-slate-500  max-w-full flex flex-wrap items-center justify-between mx-auto py-4">
+        <div className="px-4 md:px-16 ">
+          <div className="  max-w-full flex flex-wrap items-center justify-between mx-auto py-4">
             <a href="https://flowbite.com/" className="flex items-center">
               <img
                 src="https://flowbite.com/docs/images/logo.svg"
@@ -51,7 +51,7 @@ function NavigationBar() {
               }`}
               id="navbar-default"
             >
-              <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+              <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
                   <a
                     href="#"
