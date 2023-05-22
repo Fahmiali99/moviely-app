@@ -8,6 +8,7 @@ import Upcoming from "./detail/upcoming";
 
 function HomePage() {
   const dispatch = useDispatch();
+  const BaseUrl = "https://image.tmdb.org/t/p/original";
   const { popular } = useSelector((state: RootState) => state.popular);
   useEffect(() => {
     getPopular().then((data) => {
@@ -15,10 +16,24 @@ function HomePage() {
     });
   }, [dispatch]);
 
-  console.log(popular);
   return (
     <div>
-      <Banner />
+      {/* Banner */}
+      {popular?.length
+        ? popular.slice(10, 11).map((item: any, idx: any) => {
+            const Image = BaseUrl + item?.backdrop_path;
+            console.log(Image);
+            return (
+              <div key={idx}>
+                <Banner
+                  title={item?.original_title}
+                  image={Image}
+                  overview={item?.overview}
+                />
+              </div>
+            );
+          })
+        : "Not data files"}
       <Upcoming />
     </div>
   );
