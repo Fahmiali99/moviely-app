@@ -31,11 +31,16 @@ function Banner({ title, image, overview }: BannerProps) {
           <h1 className="grid grid-cols-2 text-8xl font-extrabold pb-5 uppercase">
             {title}
           </h1>
-          <p className="grid grid-cols-2 text-xl font-medium">{overview}</p>
+          <p
+            className="grid grid-cols-2 text-xl "
+            style={{ fontSize: "1.2vw" }}
+          >
+            {overview}
+          </p>
           <div className="flex pt-7">
             <button
               type="button"
-              className=" font-medium rounded-lg text-lg px-5 py-2.5 text-center items-center inline-flex bg-white hover:bg-opacity-60 text-black mr-2 mb-2"
+              className=" font-medium rounded-md text-lg px-6 py-2.5 text-center items-center inline-flex bg-white hover:bg-opacity-60 text-black mr-2 mb-2"
             >
               <span>
                 <BsFillPlayFill className=" text-4xl inline-flex " /> Putar
@@ -43,7 +48,7 @@ function Banner({ title, image, overview }: BannerProps) {
             </button>
             <button
               type="button"
-              className=" font-medium rounded-lg text-lg px-5 py-2.5 text-center items-center inline-flex bg-[#585055] text-white mr-2 mb-2 bg-opacity-80 hover:bg-opacity-60"
+              className=" font-medium rounded-md text-lg px-6 py-2.5 text-center items-center inline-flex bg-[#585055] text-white mr-2 mb-2 bg-opacity-80 hover:bg-opacity-60"
             >
               <span>
                 <AiOutlineInfoCircle className=" text-4xl inline-flex mr-3" />
