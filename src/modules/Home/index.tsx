@@ -20,7 +20,7 @@ function HomePage() {
     <div>
       {/* Banner */}
       {popular?.length
-        ? popular.slice(10, 11).map((item: any, idx: any) => {
+        ? popular.slice(7, 8).map((item: any, idx: any) => {
             const Image = BaseUrl + item?.backdrop_path;
             console.log(Image);
             return (

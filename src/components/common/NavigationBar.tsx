@@ -155,9 +155,7 @@ function NavigationBar() {
                 </button>
 
                 {drop && (
-                  <div
-                    className={`absolute right-5 bg-darks px-3  py-2 rounded-lg $`}
-                  >
+                  <div className={`absolute right-5 px-3  py-2 rounded-lg $`}>
                     <div
                       id="dropdownHover"
                       onMouseEnter={handleMouseEnter}
