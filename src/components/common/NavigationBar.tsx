@@ -90,7 +90,7 @@ function NavigationBar() {
 
   return (
     <nav
-      className={`fixed w-full duration-500 ease-in-out ${
+      className={`fixed w-full duration-500 ease-in-out z-50 ${
         scrolled ? "bg-dark text-white" : "text-white"
       }`}
     >
