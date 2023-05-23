@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "@/components/Layout";
-import AboutPage from "@/modules/About";
+import AboutPage from "@/modules/about";
 
 function about() {
   return (

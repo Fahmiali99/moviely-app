@@ -1,4 +1,4 @@
-import HomePage from "@/modules/Home";
+import HomePage from "@/modules/home";
 import nookies from "nookies";
 
 export const getServerSideProps = async (ctx: any) => {

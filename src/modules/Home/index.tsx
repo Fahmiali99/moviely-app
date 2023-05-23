@@ -34,8 +34,8 @@ function HomePage() {
             );
           })
         : "Not data files"}
-      {/* Caraousell:: Popular */}
-      <Popular popular={popular} />
+      Caraousell:: Popular
+      <Popular popular={popular} BaseUrl={BaseUrl} />
     </div>
   );
 }
