@@ -4,7 +4,7 @@ import { RootState } from "@/store";
 import { getPopular } from "@/lib/popular/fetchApi";
 import { setPopular } from "@/store/popular";
 import Banner from "./detail/banner";
-import Upcoming from "./detail/upcoming";
+import Popular from "./detail/popular";
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ function HomePage() {
     <div>
       {/* Banner */}
       {popular?.length
-        ? popular.slice(7, 8).map((item: any, idx: any) => {
+        ? popular.slice(14, 15).map((item: any, idx: number) => {
             const Image = BaseUrl + item?.backdrop_path;
             console.log(Image);
             return (
@@ -34,7 +34,8 @@ function HomePage() {
             );
           })
         : "Not data files"}
-      <Upcoming />
+      {/* Caraousell:: Popular */}
+      <Popular popular={popular} />
     </div>
   );
 }

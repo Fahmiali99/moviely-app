@@ -19,7 +19,7 @@ function Banner({ title, image, overview }: BannerProps) {
       }}
     >
       <div className=" ">
-        <div className="h-1/3 absolute top-3/4 inset-0 bg-gradient-to-b from-transparent via-dark to-dark opacity-80" />
+        <div className=" z-0 h-1/3 absolute top-3/4 inset-0 bg-gradient-to-b from-transparent via-dark to-dark opacity-80" />
       </div>
       <div className="px-4 md:px-16 max-w-full">
         <div className="text-white">
