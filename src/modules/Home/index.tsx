@@ -10,6 +10,7 @@ function HomePage() {
   const dispatch = useDispatch();
   const BaseUrl = "https://image.tmdb.org/t/p/original";
   const { popular } = useSelector((state: RootState) => state.popular);
+
   useEffect(() => {
     getPopular().then((data) => {
       dispatch(setPopular(data));
@@ -19,23 +20,18 @@ function HomePage() {
   return (
     <div>
       {/* Banner */}
-      {popular?.length
-        ? popular.slice(14, 15).map((item: any, idx: number) => {
-            const Image = BaseUrl + item?.backdrop_path;
-            console.log(Image);
-            return (
-              <div key={idx}>
-                <Banner
-                  title={item?.original_title}
-                  image={Image}
-                  overview={item?.overview}
-                />
-              </div>
-            );
-          })
-        : "Not data files"}
-      Caraousell:: Popular
-      <Popular popular={popular} BaseUrl={BaseUrl} />
+      {popular && popular.length ? (
+        <Banner BaseUrl={BaseUrl} data={popular} />
+      ) : (
+        <div>No popular data available</div>
+      )}
+
+      {/* Carousel: Popular */}
+      {popular && popular.length ? (
+        <Popular data={popular} BaseUrl={BaseUrl} />
+      ) : (
+        <div>No popular data available</div>
+      )}
     </div>
   );
 }
