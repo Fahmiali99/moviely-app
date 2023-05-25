@@ -14,6 +14,7 @@ function Banner({ data, BaseUrl }: BannerProps) {
     <>
       {data.slice(12, 13)?.map((item: any, idx: number) => {
         const Images = BaseUrl + item?.backdrop_path;
+        console.log(Image);
         return (
           <div key={idx}>
             <div

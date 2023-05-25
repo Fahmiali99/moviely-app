@@ -5,9 +5,9 @@ import { getPopular } from "@/lib/popular/fetchApi";
 import { setPopular } from "@/store/popular";
 import Banner from "./detail/banner";
 import Popular from "./detail/popular";
-import axios from "axios";
 import { getTrending } from "@/lib/trending/fetchApi";
 import { setTrending } from "@/store/trending";
+import Trending from "./detail/trending";
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -25,8 +25,6 @@ function HomePage() {
     });
   }, [dispatch]);
 
-  console.log(trending);
-
   return (
     <div>
       {/* Banner */}
@@ -39,6 +37,13 @@ function HomePage() {
       {/* Carousel: Popular */}
       {popular && popular.length ? (
         <Popular data={popular} BaseUrl={BaseUrl} />
+      ) : (
+        <div>No popular data available</div>
+      )}
+
+      {/* Carousel: Trending */}
+      {trending && trending.length ? (
+        <Trending data={trending} BaseUrl={BaseUrl} />
       ) : (
         <div>No popular data available</div>
       )}
