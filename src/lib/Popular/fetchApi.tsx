@@ -12,5 +12,6 @@ export const getPopular = async () => {
       api_key: API_KEY,
     },
   });
+
   return response?.data?.results;
 };
