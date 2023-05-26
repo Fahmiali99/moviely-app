@@ -1,12 +1,12 @@
 import {
   API_KEY_MOVIE,
   API_TOKEN_MOVIE,
-  FETCH_MOVIE_TRENDING,
+  FETCH_MOVIE_HOROR,
 } from "@/constans/urlApi";
 import axios from "axios";
 
-export const getTrending = async () => {
-  const response = await axios.get(FETCH_MOVIE_TRENDING + API_KEY_MOVIE, {
+export const getHoror = async () => {
+  const response = await axios.get(FETCH_MOVIE_HOROR + API_KEY_MOVIE, {
     headers: {
       Authorization: `Bearer ${API_TOKEN_MOVIE}`,
     },
@@ -14,6 +14,5 @@ export const getTrending = async () => {
       api_key: API_KEY_MOVIE,
     },
   });
-
   return response?.data?.results;
 };

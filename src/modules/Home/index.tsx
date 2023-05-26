@@ -3,17 +3,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { getPopular } from "@/lib/popular/fetchApi";
 import { setPopular } from "@/store/popular";
-import Banner from "./detail/banner";
-import Popular from "./detail/popular";
+
 import { getTrending } from "@/lib/trending/fetchApi";
 import { setTrending } from "@/store/trending";
-import Trending from "./detail/trending";
+import Row from "./components/Row";
+import { getHoror } from "@/lib/horor/fetchApi";
+import { setHoror } from "@/store/horor";
+import Banner from "./detail/banner";
 
 function HomePage() {
   const dispatch = useDispatch();
   const BaseUrl = "https://image.tmdb.org/t/p/original";
   const { popular } = useSelector((state: RootState) => state.popular);
   const { trending } = useSelector((state: RootState) => state.trending);
+  const { horor } = useSelector((state: RootState) => state.horor);
 
   useEffect(() => {
     getPopular().then((data) => {
@@ -22,6 +25,10 @@ function HomePage() {
 
     getTrending().then((data) => {
       dispatch(setTrending(data));
+    });
+
+    getHoror().then((data) => {
+      dispatch(setHoror(data));
     });
   }, [dispatch]);
 
@@ -34,16 +41,17 @@ function HomePage() {
         <div>No popular data available</div>
       )}
 
-      {/* Carousel: Popular */}
+      {/* Carousel */}
       {popular && popular.length ? (
-        <Popular data={popular} BaseUrl={BaseUrl} />
-      ) : (
-        <div>No popular data available</div>
-      )}
-
-      {/* Carousel: Trending */}
-      {trending && trending.length ? (
-        <Trending data={trending} BaseUrl={BaseUrl} />
+        <>
+          <Row title="Populer di Netfix" data={popular} BaseUrl={BaseUrl} />
+          <Row title="Trending di Netfix" data={trending} BaseUrl={BaseUrl} />
+          <Row
+            title="Horor Asia Supernatural"
+            data={trending}
+            BaseUrl={BaseUrl}
+          />
+        </>
       ) : (
         <div>No popular data available</div>
       )}

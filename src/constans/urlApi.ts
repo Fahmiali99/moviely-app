@@ -1,6 +1,9 @@
 export const BASE_URL = "https://api.themoviedb.org/3";
-export const FETCH_MOVIE_POPULAR = BASE_URL + "/movie/popular";
+export const FETCH_MOVIE_POPULAR = BASE_URL + "/movie/upcoming";
 export const FETCH_MOVIE_TRENDING = BASE_URL + "/trending/movie/week?api_key=";
+
+// not_progres
+export const FETCH_MOVIE_HOROR = BASE_URL + "/person/popular?api_key=";
 
 // Account
 export const API_KEY_MOVIE = "07e6ec92d194077e5753fc4f80aa8bd5";
