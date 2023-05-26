@@ -8,6 +8,7 @@ import {
   IoMdNotificationsOutline,
   IoMdArrowDropdown,
 } from "react-icons/io";
+import Link from "next/link";
 
 function NavigationBar() {
   const [open, setOpen] = useState(false);
@@ -150,7 +151,15 @@ function NavigationBar() {
                   className="flex items-center"
                   type="button"
                 >
-                  <div className="m w-9 h-9 rounded-lg bg-slate-500 mr-1"></div>
+                  <div className=" w-9 h-9 rounded-lg  mr-1 flex items-center justify-center">
+                    <Link href="/account">
+                      <img
+                        src="https://rb.gy/g1pwyx"
+                        alt=""
+                        className="cursor-pointer rounded"
+                      />
+                    </Link>
+                  </div>
                   <IoMdArrowDropdown className="" />
                 </button>
 
