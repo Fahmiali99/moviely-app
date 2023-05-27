@@ -45,12 +45,8 @@ function HomePage() {
       {popular && popular.length ? (
         <>
           <Row title="Populer di Netfix" data={popular} BaseUrl={BaseUrl} />
-          <Row title="Trending di Netfix" data={trending} BaseUrl={BaseUrl} />
-          <Row
-            title="Horor Asia Supernatural"
-            data={trending}
-            BaseUrl={BaseUrl}
-          />
+          <Row title="Acara TV Komedi" data={trending} BaseUrl={BaseUrl} />
+          <Row title="Horor Asia Supernatural" data={horor} BaseUrl={BaseUrl} />
         </>
       ) : (
         <div>No popular data available</div>

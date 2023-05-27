@@ -6,7 +6,7 @@ import {
 import axios from "axios";
 
 export const getHoror = async () => {
-  const response = await axios.get(FETCH_MOVIE_HOROR + API_KEY_MOVIE, {
+  const response = await axios.get(FETCH_MOVIE_HOROR, {
     headers: {
       Authorization: `Bearer ${API_TOKEN_MOVIE}`,
     },

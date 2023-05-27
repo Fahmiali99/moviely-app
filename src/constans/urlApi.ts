@@ -3,7 +3,8 @@ export const FETCH_MOVIE_POPULAR = BASE_URL + "/movie/upcoming";
 export const FETCH_MOVIE_TRENDING = BASE_URL + "/trending/movie/week?api_key=";
 
 // not_progres
-export const FETCH_MOVIE_HOROR = BASE_URL + "/person/popular?api_key=";
+export const FETCH_MOVIE_HOROR =
+  "https://api.themoviedb.org/3/discover/movie?page=3";
 
 // Account
 export const API_KEY_MOVIE = "07e6ec92d194077e5753fc4f80aa8bd5";
