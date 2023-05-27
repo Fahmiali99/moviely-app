@@ -92,7 +92,7 @@ function NavigationBar() {
   return (
     <nav
       className={`fixed w-full duration-500 ease-in-out z-50 ${
-        scrolled ? "bg-dark text-white" : "text-white"
+        scrolled ? "bg-navbars text-white" : "text-white"
       }`}
     >
       {!scrolled && (
@@ -169,7 +169,7 @@ function NavigationBar() {
                       id="dropdownHover"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
-                      className={`z-10  bg-dark divide-y divide-gray-900 rounded-lg shadow w-44 dark:bg-gray-700 `}
+                      className={`z-10  bg-navbars divide-y divide-gray-900 rounded-lg shadow w-44 dark:bg-gray-700 `}
                     >
                       {open && (
                         <ul
