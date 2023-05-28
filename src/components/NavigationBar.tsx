@@ -3,12 +3,9 @@ import React, { useState, useEffect } from "react";
 import logo from "@/../../public/assets/netflix.png";
 import Image from "next/image";
 import { RxHamburgerMenu } from "react-icons/rx";
-import {
-  IoIosSearch,
-  IoMdNotificationsOutline,
-  IoMdArrowDropdown,
-} from "react-icons/io";
+import { IoMdArrowDropdown } from "react-icons/io";
 import Link from "next/link";
+import { accounts, alerts, menu } from "@/utils/navbar";
 
 function NavigationBar() {
   const [open, setOpen] = useState(false);
@@ -41,53 +38,6 @@ function NavigationBar() {
   const handleMouseLeave = () => {
     setDrop(false);
   };
-
-  const menu = [
-    {
-      name: "Beranda",
-      href: "/",
-    },
-    {
-      name: "Acara TV",
-      href: "#",
-    },
-    {
-      name: "Film",
-      href: "#",
-    },
-    {
-      name: "Baru & Populer",
-      href: "#",
-    },
-    {
-      name: "Daftar Saya",
-      href: "#",
-    },
-    {
-      name: "Telusuri menurut Bahasa",
-      href: "#",
-    },
-  ];
-
-  const alerts = [
-    {
-      Icons: IoIosSearch,
-    },
-    {
-      Icons: IoMdNotificationsOutline,
-    },
-  ];
-
-  const accounts = [
-    {
-      name: "Akun",
-      href: "#",
-    },
-    {
-      name: "Keluar",
-      href: "#",
-    },
-  ];
 
   return (
     <nav
