@@ -14,6 +14,7 @@ import Banner from "./detail/banner";
 function HomePage() {
   const dispatch = useDispatch();
   const BaseUrl = "https://image.tmdb.org/t/p/original";
+  const BaseUrlBody = "https://image.tmdb.org/t/p/w500";
   const { popular } = useSelector((state: RootState) => state.popular);
   const { trending } = useSelector((state: RootState) => state.trending);
   const { horor } = useSelector((state: RootState) => state.horor);
@@ -44,9 +45,13 @@ function HomePage() {
       {/* Carousel */}
       {popular && popular.length ? (
         <>
-          <Row title="Populer di Netfix" data={popular} BaseUrl={BaseUrl} />
-          <Row title="Acara TV Komedi" data={trending} BaseUrl={BaseUrl} />
-          <Row title="Horor Asia Supernatural" data={horor} BaseUrl={BaseUrl} />
+          <Row title="Populer di Netfix" data={popular} BaseUrl={BaseUrlBody} />
+          <Row title="Acara TV Komedi" data={trending} BaseUrl={BaseUrlBody} />
+          <Row
+            title="Horor Asia Supernatural"
+            data={horor}
+            BaseUrl={BaseUrlBody}
+          />
         </>
       ) : (
         <div>No popular data available</div>

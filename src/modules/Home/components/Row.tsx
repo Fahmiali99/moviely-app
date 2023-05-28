@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import Slider from "react-slick";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 interface PopularProps {
-  data: any; // Update the data type to match the expected array structure
+  data: [backdrop_path: string, poster_path: string];
   BaseUrl: string;
   title: string;
 }
@@ -14,17 +15,22 @@ type Settings = {
   slidesToShow: number;
   slidesToScroll: number;
   autoplay: boolean;
+  // nextArrow: any;
+  // prevArrow: any;
 };
 
 function Row(props: PopularProps) {
   const { data, BaseUrl, title } = props;
+  const slider = useRef<Slider>(null);
   const settings: Settings = {
     dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: 6,
-    slidesToScroll: 3,
+    slidesToScroll: 6,
     autoplay: false,
+    // nextArrow: <AiOutlineRight className="text-white" />,
+    // prevArrow: <AiOutlineLeft />,
   };
   return (
     <div>
@@ -37,23 +43,28 @@ function Row(props: PopularProps) {
         </h1>
         <div className="w-full flex items-center justify-center text-white">
           <div className="max-w-full ">
-            <Slider {...settings}>
-              {data.map((item: any, idx: number) => {
-                const Image = BaseUrl + item.backdrop_path || item.poster_path;
-                return (
-                  <div key={idx} className="px-1">
-                    <div className="bg-slate-500 rounded">
-                      <img
-                        src={Image}
-                        className="rounded"
-                        alt=""
-                        width={1000}
-                      />
-                    </div>
-                  </div>
-                );
-              })}
-            </Slider>
+            <div>
+              <div>
+                <Slider ref={slider} {...settings}>
+                  {data.map((item: any, idx: number) => {
+                    const Image =
+                      BaseUrl + item.backdrop_path || item.poster_path;
+                    return (
+                      <div key={idx} className="px-1">
+                        <div className="bg-slate-500 rounded">
+                          <img
+                            src={Image}
+                            className="rounded"
+                            alt=""
+                            width={1000}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </Slider>
+              </div>
+            </div>
           </div>
         </div>
       </div>
