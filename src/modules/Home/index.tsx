@@ -41,7 +41,6 @@ function HomePage() {
       ) : (
         <div>No popular data available</div>
       )}
-
       {/* Carousel */}
       {popular && popular.length ? (
         <>

@@ -29,8 +29,6 @@ function Row(props: PopularProps) {
     slidesToShow: 6,
     slidesToScroll: 6,
     autoplay: false,
-    // nextArrow: <AiOutlineRight className="text-white" />,
-    // prevArrow: <AiOutlineLeft />,
   };
   return (
     <div>
