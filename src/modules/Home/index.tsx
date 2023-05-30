@@ -36,11 +36,12 @@ function HomePage() {
   return (
     <div>
       {/* Banner */}
-      {popular && popular.length ? (
+      {popular && popular?.length ? (
         <Banner BaseUrl={BaseUrl} data={popular} />
       ) : (
         <div>No popular data available</div>
       )}
+
       {/* Carousel */}
       {popular?.length ? (
         <>

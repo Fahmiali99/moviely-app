@@ -1,15 +1,23 @@
-import React from "react";
-import Layout from "@/components/Layout";
-import AboutPage from "@/modules/about";
+import Televisi from "@/modules/televisi";
+import nookies from "nookies";
 
-function about() {
-  return (
-    <>
-      <Layout>
-        <AboutPage />
-      </Layout>
-    </>
-  );
-}
+export const getServerSideProps = async (ctx: any) => {
+  const cookies = nookies.get(ctx);
 
-export default about;
+  if (!cookies.accessToken) {
+    return {
+      props: {
+        auth: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      auth: true,
+      // role: cookies.role,
+    },
+  };
+};
+
+export default Televisi;

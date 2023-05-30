@@ -6,7 +6,7 @@ export const menu = [
   },
   {
     name: "Acara TV",
-    href: "#",
+    href: "/televisi",
   },
   {
     name: "Film",
