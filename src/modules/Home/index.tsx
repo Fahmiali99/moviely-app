@@ -42,7 +42,7 @@ function HomePage() {
         <div>No popular data available</div>
       )}
       {/* Carousel */}
-      {popular && popular.length ? (
+      {popular?.length ? (
         <>
           <Row title="Populer di Netfix" data={popular} BaseUrl={BaseUrlBody} />
           <Row title="Acara TV Komedi" data={trending} BaseUrl={BaseUrlBody} />

@@ -44,7 +44,7 @@ function Row(props: PopularProps) {
             <div>
               <div>
                 <Slider ref={slider} {...settings}>
-                  {data.map((item: any, idx: number) => {
+                  {data?.map((item: any, idx: number) => {
                     const Image =
                       BaseUrl + item.backdrop_path || item.poster_path;
                     return (
