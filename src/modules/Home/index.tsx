@@ -43,19 +43,15 @@ function HomePage() {
       )}
 
       {/* Carousel */}
-      {popular?.length ? (
-        <>
-          <Row title="Populer di Netfix" data={popular} BaseUrl={BaseUrlBody} />
-          <Row title="Acara TV Komedi" data={trending} BaseUrl={BaseUrlBody} />
-          <Row
-            title="Horor Asia Supernatural"
-            data={horor}
-            BaseUrl={BaseUrlBody}
-          />
-        </>
-      ) : (
-        <div>No popular data available</div>
-      )}
+      <>
+        <Row title="Populer di Netfix" data={popular} BaseUrl={BaseUrlBody} />
+        <Row title="Acara TV Komedi" data={trending} BaseUrl={BaseUrlBody} />
+        <Row
+          title="Horor Asia Supernatural"
+          data={horor}
+          BaseUrl={BaseUrlBody}
+        />
+      </>
     </div>
   );
 }

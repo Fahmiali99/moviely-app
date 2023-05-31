@@ -24,9 +24,9 @@ function Banner({ data, BaseUrl }: BannerProps) {
               }}
             >
               <div className=" ">
-                <div className=" z-0 h-1/3 absolute top-3/4 inset-0 bg-gradient-to-b from-transparent via-dark to-dark opacity-80" />
+                <div className=" z-0 h-1/3 absolute top-3/4 inset-0 bg-gradient-to-b from-transparent via-body to-body opacity-80" />
               </div>
-              <div className="px-4 md:px-16 max-w-full">
+              <div className="px-4 md:px-16 max-w-full z-10">
                 <div className="text-white">
                   <span className=" uppercase text-3xl font-bold inline-flex items-center">
                     <Image src={netflix} alt="" width={50} />

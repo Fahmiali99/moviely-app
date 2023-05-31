@@ -41,28 +41,23 @@ function Row(props: PopularProps) {
         </h1>
         <div className="w-full flex items-center justify-center text-white">
           <div className="max-w-full ">
-            <div>
-              <div>
-                <Slider ref={slider} {...settings}>
-                  {data?.map((item: any, idx: number) => {
-                    const Image =
-                      BaseUrl + item.backdrop_path || item.poster_path;
-                    return (
-                      <div key={idx} className="px-1">
-                        <div className="bg-slate-500 rounded">
-                          <img
-                            src={Image}
-                            className="rounded"
-                            alt=""
-                            width={1000}
-                          />
-                        </div>
+            <Slider ref={slider} {...settings}>
+              {data?.length ? (
+                data?.map((item: any, idx: number) => {
+                  const Image =
+                    BaseUrl + item.backdrop_path || item.poster_path;
+                  return (
+                    <div key={idx} className="px-1">
+                      <div className="rounded">
+                        <img src={Image} className="rounded" alt="" />
                       </div>
-                    );
-                  })}
-                </Slider>
-              </div>
-            </div>
+                    </div>
+                  );
+                })
+              ) : (
+                <div>Hello</div>
+              )}
+            </Slider>
           </div>
         </div>
       </div>

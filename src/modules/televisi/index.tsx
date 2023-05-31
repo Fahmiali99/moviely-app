@@ -23,10 +23,10 @@ function TelevisiPage() {
   return (
     <div>
       {/* Banner */}
-      {discover && discover?.length ? (
+      {discover && discover.length ? (
         <Banner BaseUrl={BaseUrl} data={discover} />
       ) : (
-        <div>No discover data available</div>
+        <div>Banner is null</div>
       )}
     </div>
   );
