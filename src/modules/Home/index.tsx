@@ -6,10 +6,11 @@ import { setPopular } from "@/store/popular";
 
 import { getTrending } from "@/lib/trending/fetchApi";
 import { setTrending } from "@/store/trending";
-import Row from "./components/Row";
+
 import { getHoror } from "@/lib/horor/fetchApi";
 import { setHoror } from "@/store/horor";
 import Banner from "./detail/banner";
+import Row from "@/components/Row";
 
 function HomePage() {
   const dispatch = useDispatch();

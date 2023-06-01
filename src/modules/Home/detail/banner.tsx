@@ -12,7 +12,7 @@ interface BannerProps {
 function Banner({ data, BaseUrl }: BannerProps) {
   return (
     <>
-      {data.slice(5, 6)?.map((item: any, idx: number) => {
+      {data.slice(4, 5)?.map((item: any, idx: number) => {
         const Images = BaseUrl + item?.backdrop_path;
 
         return (
