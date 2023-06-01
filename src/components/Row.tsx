@@ -47,9 +47,14 @@ function Row(props: PopularProps) {
                   const Image =
                     BaseUrl + item.backdrop_path || item.poster_path;
                   return (
-                    <div key={idx} className="px-1">
-                      <div className="rounded">
-                        <img src={Image} className="rounded" alt="" />
+                    <div key={idx} className="px-1 ">
+                      <div className="rounded ">
+                        <img
+                          src={Image}
+                          className="rounded"
+                          alt=""
+                          width={1000}
+                        />
                       </div>
                     </div>
                   );

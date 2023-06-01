@@ -9,12 +9,15 @@ import { setPopular } from "@/store/movie/popular";
 import { setTrending } from "@/store/movie/trending";
 import Banner from "./detail/banner";
 import Row from "@/components/Row";
+import { getNowPlaying } from "@/lib/playing/fetchApi";
+import { setPlaying } from "@/store/movie/playing";
 
 function HomePage() {
   const dispatch = useDispatch();
   const BaseUrl = "https://image.tmdb.org/t/p/original";
   const BaseUrlBody = "https://image.tmdb.org/t/p/w500";
   const { popular } = useSelector((state: RootState) => state.popular);
+  const { playing } = useSelector((state: RootState) => state.playing);
   const { trending } = useSelector((state: RootState) => state.trending);
   const { horor } = useSelector((state: RootState) => state.horor);
 
@@ -25,6 +28,10 @@ function HomePage() {
 
     getTrending().then((data) => {
       dispatch(setTrending(data));
+    });
+
+    getNowPlaying().then((data) => {
+      dispatch(setPlaying(data));
     });
 
     getHoror().then((data) => {
@@ -45,6 +52,7 @@ function HomePage() {
       <>
         <Row title="Populer di Netfix" data={popular} BaseUrl={BaseUrlBody} />
         <Row title="Acara TV Komedi" data={trending} BaseUrl={BaseUrlBody} />
+        <Row title="Lanjutkan Menonton" data={playing} BaseUrl={BaseUrl} />
         <Row
           title="Horor Asia Supernatural"
           data={horor}
