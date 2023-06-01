@@ -7,14 +7,21 @@ import { setDiscover } from "@/store/televisi/discover";
 import Row from "@/components/Row";
 import { getNowPlaying } from "@/lib/playing/fetchApi";
 import { setPlaying } from "@/store/movie/playing";
+import { getPopular } from "@/lib/popular/fetchApi";
+import { setPopular } from "@/store/movie/popular";
 
 function TelevisiPage() {
   const dispatch = useDispatch();
   const BaseUrl = "https://image.tmdb.org/t/p/original";
   const BaseUrlBody = "https://image.tmdb.org/t/p/w500";
+  const { popular } = useSelector((state: RootState) => state.popular);
   const { discover } = useSelector((state: RootState) => state.discover);
   const { playing } = useSelector((state: RootState) => state.playing);
   useEffect(() => {
+    getPopular().then((data) => {
+      dispatch(setPopular(data));
+    });
+
     getDiscoverTv().then((data) => {
       dispatch(setDiscover(data));
     });
@@ -35,9 +42,11 @@ function TelevisiPage() {
       )}
 
       <>
+        <Row title="Populer di Netfix" data={popular} BaseUrl={BaseUrlBody} />
+        <Row title="Lanjutkan Menonton" data={playing} BaseUrl={BaseUrl} />
         <Row title="Populer di Netfix" data={discover} BaseUrl={BaseUrlBody} />
         <Row title="Acara TV Komedi" data={discover} BaseUrl={BaseUrlBody} />
-        <Row title="Lanjutkan Menonton" data={playing} BaseUrl={BaseUrl} />
+
         <Row
           title="Horor Asia Supernatural"
           data={discover}

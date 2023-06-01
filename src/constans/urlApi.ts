@@ -6,6 +6,7 @@ export const FETCH_MOVIE_HOROR = BASE_URL + "/discover/movie?page=2";
 export const FETCH_MOVIE_NOWPLAYING = BASE_URL + "/movie/now_playing";
 // Televisi
 export const FETCH_TV_DISCOVER = BASE_URL + "/discover/tv";
+// export const FETCH_TV_DISCOVER = BASE_URL + "/discover/tv?page=2";
 // Account
 export const API_KEY_MOVIE = "07e6ec92d194077e5753fc4f80aa8bd5";
 export const API_TOKEN_MOVIE =
