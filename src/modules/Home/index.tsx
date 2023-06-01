@@ -2,13 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { getPopular } from "@/lib/popular/fetchApi";
-import { setPopular } from "@/store/popular";
-
 import { getTrending } from "@/lib/trending/fetchApi";
-import { setTrending } from "@/store/trending";
-
 import { getHoror } from "@/lib/horor/fetchApi";
-import { setHoror } from "@/store/horor";
+import { setHoror } from "@/store/movie/horor";
+import { setPopular } from "@/store/movie/popular";
+import { setTrending } from "@/store/movie/trending";
 import Banner from "./detail/banner";
 import Row from "@/components/Row";
 

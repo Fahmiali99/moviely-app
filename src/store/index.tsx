@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import popular from "./popular";
-import trending from "./trending";
-import horor from "./horor";
-import discover from "./discover";
+import popular from "./movie/popular";
+import trending from "./movie/trending";
+import horor from "./movie/horor";
+import discover from "./televisi/discover";
 
 export const store = configureStore({
   reducer: {

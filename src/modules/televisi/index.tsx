@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import Banner from "./detail/banner";
 import { getDiscoverTv } from "@/lib/discover/fetchApi";
-import { setDiscover } from "@/store/discover";
+import { setDiscover } from "@/store/televisi/discover";
 import Row from "@/components/Row";
 
 function TelevisiPage() {
