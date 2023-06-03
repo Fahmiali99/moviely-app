@@ -44,11 +44,19 @@ function TelevisiPage() {
       <>
         <Row title="Populer di Netfix" data={popular} BaseUrl={BaseUrlBody} />
         <Row title="Lanjutkan Menonton" data={playing} BaseUrl={BaseUrl} />
-        <Row title="Populer di Netfix" data={discover} BaseUrl={BaseUrlBody} />
-        <Row title="Acara TV Komedi" data={discover} BaseUrl={BaseUrlBody} />
+        <Row
+          title="Acara TV Drama Kasar dan Brutal"
+          data={discover}
+          BaseUrl={BaseUrlBody}
+        />
+        <Row
+          title="Acara TV Thriller Asia Seru"
+          data={discover}
+          BaseUrl={BaseUrlBody}
+        />
 
         <Row
-          title="Horor Asia Supernatural"
+          title="Acara TV Pasangan Romantis"
           data={discover}
           BaseUrl={BaseUrlBody}
         />
