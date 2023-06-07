@@ -4,26 +4,26 @@ import moment from "moment";
 
 interface ModalProps {
   modal: boolean;
-  handleModal: () => void;
-  handleClose: () => void;
-  data: any;
+  data: [backdrop_path: string, poster_path: string];
   BaseUrl: string;
+  hoveredIndex: number | null;
+  title: string;
+  handleClose: () => void;
   handleMouseLeave: () => void;
   handleMouseEnter: (idx: number) => void;
-  hoveredIndex: any;
-  title: string;
+  dropdownRef: any;
 }
 
 function Modal({
   modal,
-  handleModal,
-  handleClose,
   data,
   BaseUrl,
-  handleMouseLeave,
-  handleMouseEnter,
   hoveredIndex,
   title,
+  handleClose,
+  handleMouseLeave,
+  handleMouseEnter,
+  dropdownRef,
 }: ModalProps) {
   return (
     <div>
@@ -35,7 +35,8 @@ function Modal({
         }`}
       >
         <div className=" bg-gray-900 w-screen h-screen absolute opacity-70"></div>
-        <div className="container mx-auto h-5/6">
+
+        <div ref={dropdownRef} className="container mx-auto h-5/6">
           <div className="relative w-full max-w-full   max-h-full">
             <div className="relative bg-body rounded-lg shadow dark:bg-gray-700">
               <div className="flex justify-end items-start  p-4  rounded-t dark:border-gray-600">

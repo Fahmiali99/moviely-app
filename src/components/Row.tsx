@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { BsFillPlayFill } from "react-icons/bs";
@@ -28,6 +28,9 @@ function Row(props: PopularProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [more, setMore] = useState(false);
   const [modal, setModal] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const [navbar, setNavbar] = useState(false);
 
   const settings: Settings = {
     dots: false,
@@ -62,6 +65,23 @@ function Row(props: PopularProps) {
     setModal(false);
   };
 
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent): void {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setModal(false);
+      }
+    }
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  });
+
   return (
     <div>
       <div className="relative px-4 md:px-14   py-3 ">
@@ -88,7 +108,6 @@ function Row(props: PopularProps) {
 
         <Modal
           modal={modal}
-          handleModal={handleModal}
           handleClose={handleClose}
           data={data}
           BaseUrl={BaseUrl}
@@ -96,6 +115,7 @@ function Row(props: PopularProps) {
           handleMouseEnter={handleMouseEnter}
           hoveredIndex={hoveredIndex}
           title={title}
+          dropdownRef={dropdownRef}
         />
 
         <div className="w-full flex items-center justify-center text-white">
