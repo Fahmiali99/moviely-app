@@ -2,8 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import popular from "./movie/popular";
 import trending from "./movie/trending";
 import horor from "./movie/horor";
-import discover from "./televisi/discover";
+
 import playing from "./movie/playing";
+import kejahatan from "./televisi/kejahatan";
+import animasi from "./televisi/animasi";
+import komedi from "./televisi/komedi";
+import dokumenter from "./televisi/dokumenter";
+import drama from "./televisi/drama";
+import keluarga from "./televisi/keluarga";
 
 export const store = configureStore({
   reducer: {
@@ -13,7 +19,12 @@ export const store = configureStore({
     horor: horor,
     playing: playing,
     // televisi
-    discover: discover,
+    animasi: animasi,
+    kejahatan: kejahatan,
+    komedi: komedi,
+    dokumenter: dokumenter,
+    drama: drama,
+    keluarga: keluarga,
   },
 });
 

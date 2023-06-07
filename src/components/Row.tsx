@@ -27,8 +27,6 @@ function Row(props: PopularProps) {
   const [modal, setModal] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const [navbar, setNavbar] = useState(false);
-
   const settings: Settings = {
     dots: false,
     infinite: false,
