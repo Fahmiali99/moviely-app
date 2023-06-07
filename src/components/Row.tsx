@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
-import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import { BsFillPlayFill } from "react-icons/bs";
+import { AiOutlineRight } from "react-icons/ai";
 import moment from "moment";
 import Modal from "./Modal";
 
@@ -18,8 +17,6 @@ type Settings = {
   slidesToShow: number;
   slidesToScroll: number;
   autoplay: boolean;
-  // nextArrow: any;
-  // prevArrow: any;
 };
 
 function Row(props: PopularProps) {
@@ -74,10 +71,8 @@ function Row(props: PopularProps) {
         setModal(false);
       }
     }
-    // Bind the event listener
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      // Unbind the event listener on clean up
       document.removeEventListener("mousedown", handleClickOutside);
     };
   });
