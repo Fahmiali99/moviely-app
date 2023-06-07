@@ -13,6 +13,7 @@ import { getNowPlaying } from "@/lib/playing/fetchApi";
 import { setPlaying } from "@/store/movie/playing";
 import { getKomediTv } from "@/lib/komedi/fetchApi";
 import { setKomedi } from "@/store/televisi/komedi";
+import RowNum from "@/components/RowNum";
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -59,7 +60,11 @@ function HomePage() {
       <>
         <Row title="Populer di Netfix" data={popular} BaseUrl={BaseUrlBody} />
         <Row title="Acara TV Komedi" data={komedi} BaseUrl={BaseUrlBody} />
-        <Row title="Trending Sekarang" data={trending} BaseUrl={BaseUrlBody} />
+        <RowNum
+          title="10 Trending Teratas"
+          data={trending}
+          BaseUrl={BaseUrlBody}
+        />
         <Row title="Lanjutkan Menonton" data={playing} BaseUrl={BaseUrl} />
         <Row
           title="Horor Asia Supernatural"

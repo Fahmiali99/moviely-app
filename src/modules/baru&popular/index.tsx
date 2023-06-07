@@ -15,7 +15,7 @@ import { getKomediTv } from "@/lib/komedi/fetchApi";
 import { setKomedi } from "@/store/televisi/komedi";
 import RowNum from "@/components/RowNum";
 
-function FilmPage() {
+function BaruPopularPage() {
   const dispatch = useDispatch();
   const BaseUrl = "https://image.tmdb.org/t/p/original";
   const BaseUrlBody = "https://image.tmdb.org/t/p/w500";
@@ -50,14 +50,9 @@ function FilmPage() {
   return (
     <div>
       {/* Banner */}
-      {trending && trending?.length ? (
-        <Banner BaseUrl={BaseUrl} data={trending} />
-      ) : (
-        <div>No trending data available</div>
-      )}
 
       {/* Carousel */}
-      <>
+      <div className="pt-32">
         <Row title="Populer di Netfix" data={popular} BaseUrl={BaseUrlBody} />
         <Row title="Acara TV Komedi" data={komedi} BaseUrl={BaseUrlBody} />
         <RowNum
@@ -71,9 +66,9 @@ function FilmPage() {
           data={horor}
           BaseUrl={BaseUrlBody}
         />
-      </>
+      </div>
     </div>
   );
 }
 
-export default FilmPage;
+export default BaruPopularPage;

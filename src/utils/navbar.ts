@@ -14,7 +14,7 @@ export const menu = [
   },
   {
     name: "Baru & Populer",
-    href: "#",
+    href: "/latest",
   },
   {
     name: "Daftar Saya",
