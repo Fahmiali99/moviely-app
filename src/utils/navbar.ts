@@ -10,7 +10,7 @@ export const menu = [
   },
   {
     name: "Film",
-    href: "#",
+    href: "/film",
   },
   {
     name: "Baru & Populer",

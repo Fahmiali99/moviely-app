@@ -14,7 +14,7 @@ import { setPlaying } from "@/store/movie/playing";
 import { getKomediTv } from "@/lib/komedi/fetchApi";
 import { setKomedi } from "@/store/televisi/komedi";
 
-function HomePage() {
+function FilmPage() {
   const dispatch = useDispatch();
   const BaseUrl = "https://image.tmdb.org/t/p/original";
   const BaseUrlBody = "https://image.tmdb.org/t/p/w500";
@@ -49,10 +49,10 @@ function HomePage() {
   return (
     <div>
       {/* Banner */}
-      {popular && popular?.length ? (
-        <Banner BaseUrl={BaseUrl} data={popular} />
+      {trending && trending?.length ? (
+        <Banner BaseUrl={BaseUrl} data={trending} />
       ) : (
-        <div>No popular data available</div>
+        <div>No trending data available</div>
       )}
 
       {/* Carousel */}
@@ -71,4 +71,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default FilmPage;
