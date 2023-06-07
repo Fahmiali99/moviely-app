@@ -60,6 +60,8 @@ function Modal({
                     data?.map((item: any, idx: number) => {
                       const Image =
                         BaseUrl + item.backdrop_path || item.poster_path;
+                      const title = item.title || item.original_name;
+                      const dateTime = item.first_air_date || item.release_date;
                       return (
                         <div
                           key={idx}
@@ -74,14 +76,9 @@ function Modal({
                           />
                           {hoveredIndex === idx && (
                             <div className="z-0 absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
-                              <h3 className="text-lg font-semibold">
-                                {item?.title}
-                              </h3>
+                              <h3 className="text-lg font-semibold">{title}</h3>
                               <p className="mt-2 text-sm">
-                                {moment(
-                                  `${item?.release_date}`,
-                                  "YYYYMMDD"
-                                ).format("ll")}
+                                {moment(`${dateTime}`, "YYYYMMDD").format("ll")}
                               </p>
                             </div>
                           )}

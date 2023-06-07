@@ -14,6 +14,7 @@ function TelevisiPage() {
   const dispatch = useDispatch();
   const BaseUrl = "https://image.tmdb.org/t/p/original";
   const BaseUrlBody = "https://image.tmdb.org/t/p/w500";
+  const about = "Acara TV";
   const { popular } = useSelector((state: RootState) => state.popular);
   const { discover } = useSelector((state: RootState) => state.discover);
   const { playing } = useSelector((state: RootState) => state.playing);
@@ -44,19 +45,17 @@ function TelevisiPage() {
       <>
         <Row title="Populer di Netfix" data={popular} BaseUrl={BaseUrlBody} />
         <Row title="Lanjutkan Menonton" data={playing} BaseUrl={BaseUrl} />
-        <Row
-          title="Acara TV Drama Kasar dan Brutal"
-          data={discover}
-          BaseUrl={BaseUrlBody}
-        />
-        <Row
-          title="Acara TV Thriller Asia Seru"
-          data={discover}
-          BaseUrl={BaseUrlBody}
-        />
+        <Row title={`${about} Animasi`} data={discover} BaseUrl={BaseUrlBody} />
 
+        <Row title={`${about} Komedi`} data={discover} BaseUrl={BaseUrlBody} />
         <Row
-          title="Acara TV Pasangan Romantis"
+          title={`${about} Dokumenter`}
+          data={discover}
+          BaseUrl={BaseUrlBody}
+        />
+        <Row title={`${about} Drama`} data={discover} BaseUrl={BaseUrlBody} />
+        <Row
+          title={`${about} Keluarga`}
           data={discover}
           BaseUrl={BaseUrlBody}
         />
