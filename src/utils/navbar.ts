@@ -18,7 +18,7 @@ export const menu = [
   },
   {
     name: "Daftar Saya",
-    href: "#",
+    href: "/my-list",
   },
   {
     name: "Telusuri menurut Bahasa",
