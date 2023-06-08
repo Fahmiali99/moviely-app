@@ -9,13 +9,15 @@ function DaftarSayaPage({ data }: DaftarSayaProps) {
         <h1 className="pt-28 fixed text-3xl">Daftar Saya</h1>
         <div className="h-screen flex justify-center items-center">
           {data?.length ? (
-            data.map((item: any, idx: number) => {
-              return (
-                <div key={idx}>
-                  <h1>{idx}</h1>
-                </div>
-              );
-            })
+            <div className="grid grid-cols-6">
+              {data.map((item: any, idx: number) => {
+                return (
+                  <div key={idx}>
+                    <h1>{idx}</h1>
+                  </div>
+                );
+              })}
+            </div>
           ) : (
             <h1 className=" text-gray-500">
               Kamu belum menambahkan judul apa pun ke daftar
