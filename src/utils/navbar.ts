@@ -18,11 +18,11 @@ export const menu = [
   },
   {
     name: "Daftar Saya",
-    href: "/my-list",
+    href: "/browse/my-list",
   },
   {
     name: "Telusuri menurut Bahasa",
-    href: "#",
+    href: "/browse/original-audio",
   },
 ];
 
