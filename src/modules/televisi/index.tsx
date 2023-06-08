@@ -75,7 +75,7 @@ function TelevisiPage() {
       {kejahatan && kejahatan.length ? (
         <Banner BaseUrl={BaseUrl} data={kejahatan} />
       ) : (
-        <div>Banner is null</div>
+        <div className=" pt-24" />
       )}
 
       <>

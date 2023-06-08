@@ -49,8 +49,6 @@ function BaruPopularPage() {
 
   return (
     <div>
-      {/* Banner */}
-
       {/* Carousel */}
       <div className="pt-32">
         <Row title="Populer di Netfix" data={popular} BaseUrl={BaseUrlBody} />

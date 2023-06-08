@@ -53,7 +53,7 @@ function HomePage() {
       {popular && popular?.length ? (
         <Banner BaseUrl={BaseUrl} data={popular} />
       ) : (
-        <div>No popular data available</div>
+        <div className=" pt-24" />
       )}
 
       {/* Carousel */}

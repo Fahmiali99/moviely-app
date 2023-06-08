@@ -53,7 +53,7 @@ function FilmPage() {
       {trending && trending?.length ? (
         <Banner BaseUrl={BaseUrl} data={trending} />
       ) : (
-        <div>No trending data available</div>
+        <div className=" pt-24" />
       )}
 
       {/* Carousel */}

@@ -23,4 +23,8 @@ export const languages = [
     code: "jv",
     country: "Jepang",
   },
+  {
+    code: "jv",
+    country: "Jepang",
+  },
 ];
