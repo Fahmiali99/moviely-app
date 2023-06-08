@@ -1,4 +1,4 @@
-import DaftarSaya from "@/modules/daftar";
+import DaftarSaya from "@/modules/browse/daftar";
 import nookies from "nookies";
 
 export const getServerSideProps = async (ctx: any) => {
