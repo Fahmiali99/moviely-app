@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { RootState } from "@/store";
-import { setLanguage, setPopular } from "@/store/movie/popular";
+
 import { AiOutlineDown } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import { languages } from "@/utils/languages";
 import { getDiscover } from "@/lib/discover/fetchApi";
+import { setDiscover, setLanguage } from "@/store/movie/discover";
+import Image from "next/image";
 interface DaftarSayaProps {
   data: any;
 }
@@ -15,13 +17,13 @@ function TelusuriBahasaPage({ data }: DaftarSayaProps) {
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const { popular, language } = useSelector(
-    (state: RootState) => state.popular
+  const { discover, language } = useSelector(
+    (state: RootState) => state.discover
   );
 
   useEffect(() => {
     getDiscover(language).then((data) => {
-      dispatch(setPopular(data));
+      dispatch(setDiscover(data));
     });
   }, [dispatch, language]);
 
@@ -76,10 +78,10 @@ function TelusuriBahasaPage({ data }: DaftarSayaProps) {
         </div>
 
         <div className=" flex justify-center items-center  z-0 pt-44">
-          {popular?.length ? (
+          {discover?.length ? (
             <div className="grid grid-cols-6 gap-4">
-              {popular.map((item: any, idx: number) => {
-                const Image = BaseUrl + item.poster_path;
+              {discover.map((item: any, idx: number) => {
+                const Images = BaseUrl + item.poster_path;
                 const title = item.title || item.original_name;
                 const dateTime = item.first_air_date || item.release_date;
                 return (
@@ -89,7 +91,13 @@ function TelusuriBahasaPage({ data }: DaftarSayaProps) {
                     onMouseEnter={() => handleMouseEnter(idx)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <img src={Image} alt="" className="w-full rounded " />
+                    <Image
+                      src={Images}
+                      alt=""
+                      className="w-full rounded z-0"
+                      width={1000}
+                      height={0}
+                    />
                     {hoveredIndex === idx && (
                       <div className=" absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
                         <h3 className="text-lg font-semibold">{title}</h3>

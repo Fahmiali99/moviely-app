@@ -1,6 +1,6 @@
 export const BASE_URL = "https://api.themoviedb.org/3";
 // Movie
-export const FETCH_MOVIE_POPULAR = BASE_URL + "/movie/upcoming";
+export const FETCH_MOVIE_POPULAR = BASE_URL + "/movie/popular";
 export const FETCH_MOVIE_TRENDING = BASE_URL + "/trending/movie/week?api_key=";
 export const FETCH_MOVIE_DISCOVER = BASE_URL + "/discover/movie";
 export const FETCH_MOVIE_HOROR =

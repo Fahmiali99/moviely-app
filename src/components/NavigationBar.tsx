@@ -1,11 +1,13 @@
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import logo from "@/../../public/assets/netflix.png";
-import Image from "next/image";
+
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdArrowDropdown } from "react-icons/io";
 import Link from "next/link";
 import { accounts, alerts, menu } from "@/utils/navbar";
+import Image from "next/image";
+import account from "@/../../public/assets/account.png";
 
 function NavigationBar() {
   const [open, setOpen] = useState(false);
@@ -52,7 +54,7 @@ function NavigationBar() {
         <div className=" px-4 md:px-16 max-w-full flex flex-wrap items-center justify-between mx-auto py-4">
           <div className="flex">
             <a href="https://flowbite.com/" className="flex items-center mr-10">
-              <Image src={logo} width={100} alt="Flowbite Logo" />
+              <Image src={logo} width={100} height={0} alt="Flowbite Logo" />
             </a>
 
             <div className={`w-full md:block md:w-auto hidden`}>
@@ -103,10 +105,12 @@ function NavigationBar() {
                 >
                   <div className=" w-9 h-9 rounded-lg  mr-1 flex items-center justify-center">
                     <Link href="/account">
-                      <img
-                        src="https://rb.gy/g1pwyx"
+                      <Image
+                        src={account}
                         alt=""
                         className="cursor-pointer rounded"
+                        width={32}
+                        height={32}
                       />
                     </Link>
                   </div>

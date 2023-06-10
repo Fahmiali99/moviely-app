@@ -10,6 +10,7 @@ import komedi from "./televisi/komedi";
 import dokumenter from "./televisi/dokumenter";
 import drama from "./televisi/drama";
 import keluarga from "./televisi/keluarga";
+import discover from "./movie/discover";
 
 export const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ export const store = configureStore({
     trending: trending,
     horor: horor,
     playing: playing,
+    discover: discover,
     // televisi
     animasi: animasi,
     kejahatan: kejahatan,

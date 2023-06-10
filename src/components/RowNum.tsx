@@ -3,6 +3,7 @@ import Slider from "react-slick";
 
 import moment from "moment";
 import Loader from "./Loader";
+import Image from "next/image";
 
 interface PopularProps {
   data: [backdrop_path: string, poster_path: string];
@@ -60,7 +61,7 @@ function RowNum(props: PopularProps) {
                   </div>
                   <Slider ref={slider} {...settings} className="  ">
                     {data?.slice(0, 10)?.map((item: any, idx: number) => {
-                      const Image = BaseUrl + item.poster_path;
+                      const Images = BaseUrl + item.poster_path;
                       const title = item.title || item.original_name;
                       const dateTime = item.first_air_date || item.release_date;
                       return (
@@ -78,10 +79,12 @@ function RowNum(props: PopularProps) {
                                 </span>
                               </div>
                             </div>
-                            <img
-                              src={Image}
+                            <Image
+                              src={Images}
                               alt=""
-                              className="w-full rounded z-0 h-52 w-32"
+                              className="w-full rounded z-0"
+                              width={100}
+                              height={100}
                             />
                           </div>
 

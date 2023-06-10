@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/store";
+import { setPopular } from "@/store/movie/popular";
 import { getPopular } from "@/lib/popular/fetchApi";
 import { getTrending } from "@/lib/trending/fetchApi";
 import { getHoror } from "@/lib/horor/fetchApi";
 import { setHoror } from "@/store/movie/horor";
-import { setPopular } from "@/store/movie/popular";
 import { setTrending } from "@/store/movie/trending";
 import Banner from "./detail/banner";
 import Row from "@/components/Row";
@@ -50,7 +50,7 @@ function HomePage() {
   return (
     <div>
       {/* Banner */}
-      {popular && popular?.length ? (
+      {popular?.length ? (
         <Banner BaseUrl={BaseUrl} data={popular} />
       ) : (
         <div className=" pt-24" />

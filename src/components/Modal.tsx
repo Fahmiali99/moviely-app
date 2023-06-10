@@ -1,6 +1,7 @@
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import moment from "moment";
+import Image from "next/image";
 
 interface ModalProps {
   modal: boolean;
@@ -58,7 +59,7 @@ function Modal({
                 <div className="grid grid-cols-5 gap-4">
                   {data?.length ? (
                     data?.map((item: any, idx: number) => {
-                      const Image =
+                      const Images =
                         BaseUrl + item.backdrop_path || item.poster_path;
                       const title = item.title || item.original_name;
                       const dateTime = item.first_air_date || item.release_date;
@@ -69,10 +70,12 @@ function Modal({
                           onMouseEnter={() => handleMouseEnter(idx)}
                           onMouseLeave={handleMouseLeave}
                         >
-                          <img
-                            src={Image}
+                          <Image
+                            src={Images}
                             alt=""
                             className="w-full rounded z-0"
+                            width={1000}
+                            height={0}
                           />
                           {hoveredIndex === idx && (
                             <div className="z-0 absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
