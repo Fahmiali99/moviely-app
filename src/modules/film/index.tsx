@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { getPopular } from "@/lib/popular/fetchApi";
@@ -11,9 +11,9 @@ import Banner from "./detail/banner";
 import Row from "@/components/Row";
 import { getNowPlaying } from "@/lib/playing/fetchApi";
 import { setPlaying } from "@/store/movie/playing";
-import { getKomediTv } from "@/lib/komedi/fetchApi";
 import { setKomedi } from "@/store/televisi/komedi";
 import RowNum from "@/components/RowNum";
+import { getKomedi } from "@/lib/komedi/fetchApi";
 
 function FilmPage() {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ function FilmPage() {
       dispatch(setPopular(data));
     });
 
-    getKomediTv().then((data) => {
+    getKomedi().then((data) => {
       dispatch(setKomedi(data));
     });
 

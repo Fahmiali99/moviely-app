@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { getPopular } from "@/lib/popular/fetchApi";
@@ -7,11 +7,10 @@ import { getHoror } from "@/lib/horor/fetchApi";
 import { setHoror } from "@/store/movie/horor";
 import { setPopular } from "@/store/movie/popular";
 import { setTrending } from "@/store/movie/trending";
-import Banner from "./detail/banner";
 import Row from "@/components/Row";
 import { getNowPlaying } from "@/lib/playing/fetchApi";
 import { setPlaying } from "@/store/movie/playing";
-import { getKomediTv } from "@/lib/komedi/fetchApi";
+import { getKomedi } from "@/lib/komedi/fetchApi";
 import { setKomedi } from "@/store/televisi/komedi";
 import RowNum from "@/components/RowNum";
 
@@ -30,7 +29,7 @@ function BaruPopularPage() {
       dispatch(setPopular(data));
     });
 
-    getKomediTv().then((data) => {
+    getKomedi().then((data) => {
       dispatch(setKomedi(data));
     });
 

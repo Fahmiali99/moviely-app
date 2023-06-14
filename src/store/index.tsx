@@ -11,19 +11,24 @@ import dokumenter from "./televisi/dokumenter";
 import drama from "./televisi/drama";
 import keluarga from "./televisi/keluarga";
 import discover from "./movie/discover";
+import upcoming from "./movie/upcoming";
+import komeditv from "./televisi/komeditv";
 
 export const store = configureStore({
   reducer: {
     // movie
     popular: popular,
+    upcoming: upcoming,
     trending: trending,
     horor: horor,
     playing: playing,
     discover: discover,
+    komedi: komedi,
+
     // televisi
     animasi: animasi,
     kejahatan: kejahatan,
-    komedi: komedi,
+    komeditv: komeditv,
     dokumenter: dokumenter,
     drama: drama,
     keluarga: keluarga,

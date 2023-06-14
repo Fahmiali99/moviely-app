@@ -11,14 +11,14 @@ import { setPopular } from "@/store/movie/popular";
 import { setKejatan } from "@/store/televisi/kejahatan";
 import { getAnimasiTv } from "@/lib/animasi/fetchApi";
 import { setAnimasi } from "@/store/televisi/animasi";
-import { getKomediTv } from "@/lib/komedi/fetchApi";
-import { setKomedi } from "@/store/televisi/komedi";
+import { getKomediTv } from "@/lib/komeditv/fetchApi";
 import { getDokumenterTv } from "@/lib/dokumenter/fetchApi";
 import { setDokumenter } from "@/store/televisi/dokumenter";
 import { getDramaTv } from "@/lib/drama/fetchApi";
 import { setDrama } from "@/store/televisi/drama";
 import { getKeluarga } from "@/lib/keluarga/fetchApi";
 import { setKeluarga } from "@/store/televisi/keluarga";
+import { setKomediTv } from "@/store/televisi/komeditv";
 
 function TelevisiPage() {
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ function TelevisiPage() {
   const { playing } = useSelector((state: RootState) => state.playing);
   const { animasi } = useSelector((state: RootState) => state.animasi);
   const { kejahatan } = useSelector((state: RootState) => state.kejahatan);
-  const { komedi } = useSelector((state: RootState) => state.komedi);
+  const { komeditv } = useSelector((state: RootState) => state.komeditv);
   const { dokumenter } = useSelector((state: RootState) => state.dokumenter);
   const { drama } = useSelector((state: RootState) => state.drama);
   const { keluarga } = useSelector((state: RootState) => state.keluarga);
@@ -52,7 +52,7 @@ function TelevisiPage() {
     });
 
     getKomediTv().then((data) => {
-      dispatch(setKomedi(data));
+      dispatch(setKomediTv(data));
     });
 
     getDokumenterTv().then((data) => {
@@ -80,14 +80,14 @@ function TelevisiPage() {
 
       <>
         <Row title="Populer di Netfix" data={popular} BaseUrl={BaseUrlBody} />
-        <Row title="Lanjutkan Menonton" data={playing} BaseUrl={BaseUrl} />
+        <Row title="Lanjutkan Menonton" data={playing} BaseUrl={BaseUrlBody} />
         <Row title={`${about} Animasi`} data={animasi} BaseUrl={BaseUrlBody} />
         <Row
           title={`${about} Kejahatan`}
           data={kejahatan}
           BaseUrl={BaseUrlBody}
         />
-        <Row title={`${about} Komedi`} data={komedi} BaseUrl={BaseUrlBody} />
+        <Row title={`${about} Komedi`} data={komeditv} BaseUrl={BaseUrlBody} />
         <Row
           title={`${about} Dokumenter`}
           data={dokumenter}
