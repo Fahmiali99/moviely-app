@@ -7,11 +7,11 @@ import { getHoror } from "@/lib/horor/fetchApi";
 import { setHoror } from "@/store/movie/horor";
 import { setPopular } from "@/store/movie/popular";
 import { setTrending } from "@/store/movie/trending";
-import Row from "@/components/Row";
 import { getNowPlaying } from "@/lib/playing/fetchApi";
 import { setPlaying } from "@/store/movie/playing";
 import { getKomedi } from "@/lib/komedi/fetchApi";
 import { setKomedi } from "@/store/televisi/komedi";
+import Row from "@/components/Row";
 import RowNum from "@/components/RowNum";
 
 function BaruPopularPage() {

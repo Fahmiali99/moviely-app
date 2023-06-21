@@ -11,13 +11,11 @@ import Banner from "./detail/banner";
 import Row from "@/components/Row";
 import { getNowPlaying } from "@/lib/playing/fetchApi";
 import { setPlaying } from "@/store/movie/playing";
-// import { getKomediTv } from "@/lib/komedi/fetchApi";
-// import { setKomedi } from "@/store/televisi/komedi";
-import RowNum from "@/components/RowNum";
 import { getUpcoming } from "@/lib/upcoming/fetchApi";
 import { setUpcoming } from "@/store/movie/upcoming";
 import { getKomedi } from "@/lib/komedi/fetchApi";
 import { setKomedi } from "@/store/movie/komedi";
+import RowNum from "@/components/RowNum";
 
 function HomePage() {
   const dispatch = useDispatch();
