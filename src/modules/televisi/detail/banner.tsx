@@ -32,7 +32,7 @@ function Banner({ data, BaseUrl }: BannerProps) {
                   </span>
 
                   <h1 className="grid grid-cols-2 text-8xl font-extrabold pb-5 uppercase">
-                    {item?.original_title}
+                    {item?.name}
                   </h1>
                   <p
                     className="grid grid-cols-2 text-xl "
