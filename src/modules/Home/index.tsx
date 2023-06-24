@@ -56,14 +56,12 @@ function HomePage() {
 
   return (
     <div>
-      {/* Banner */}
       {popular?.length ? (
         <Banner BaseUrl={BaseUrl} data={popular} />
       ) : (
         <div className=" pt-24" />
       )}
 
-      {/* Carousel */}
       <>
         <Row title="Populer di Netfix" data={popular} BaseUrl={BaseUrlBody} />
         <Row

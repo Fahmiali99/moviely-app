@@ -49,14 +49,12 @@ function FilmPage() {
 
   return (
     <div>
-      {/* Banner */}
       {trending && trending?.length ? (
         <Banner BaseUrl={BaseUrl} data={trending} />
       ) : (
         <div className=" pt-24" />
       )}
 
-      {/* Carousel */}
       <>
         <Row title="Populer di Netfix" data={popular} BaseUrl={BaseUrlBody} />
         <Row title="Acara TV Komedi" data={komedi} BaseUrl={BaseUrlBody} />

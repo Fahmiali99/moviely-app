@@ -71,7 +71,6 @@ function TelevisiPage() {
 
   return (
     <div>
-      {/* Banner */}
       {kejahatan && kejahatan.length ? (
         <Banner BaseUrl={BaseUrl} data={kejahatan} />
       ) : (

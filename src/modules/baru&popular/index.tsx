@@ -48,7 +48,6 @@ function BaruPopularPage() {
 
   return (
     <div>
-      {/* Carousel */}
       <div className="pt-32">
         <Row title="Populer di Netfix" data={popular} BaseUrl={BaseUrlBody} />
         <Row title="Acara TV Komedi" data={komedi} BaseUrl={BaseUrlBody} />
