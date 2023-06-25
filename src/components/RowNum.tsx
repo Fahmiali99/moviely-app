@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import Slider from "react-slick";
-
 import moment from "moment";
 import Loader from "./Loader";
 import Image from "next/image";
