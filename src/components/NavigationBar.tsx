@@ -97,11 +97,7 @@ function NavigationBar() {
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
-                <button
-                  onClick={handleOpen}
-                  className="flex items-center"
-                  type="button"
-                >
+                <button className="flex items-center" type="button">
                   <div className=" w-9 h-9 rounded-lg  mr-1 flex items-center justify-center">
                     <Link href="/account">
                       <Image
@@ -117,14 +113,16 @@ function NavigationBar() {
                 </button>
 
                 {drop && (
-                  <div className={`absolute right-5 px-3  py-2 rounded-lg`}>
+                  <div
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    className={`absolute right-5 px-3  py-2 rounded-lg`}
+                  >
                     <div
                       id="dropdownHover"
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
                       className={`z-10  bg-navbars divide-y divide-gray-900 rounded-lg shadow w-44 dark:bg-gray-700 `}
                     >
-                      {open && (
+                      {drop && (
                         <ul
                           className="py-2 text-sm text-white dark:text-gray-200"
                           aria-labelledby="dropdownHoverButton"
