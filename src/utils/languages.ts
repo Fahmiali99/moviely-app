@@ -8,6 +8,10 @@ export const languages = [
     country: "Indonesia",
   },
   {
+    code: "jv",
+    country: "Jawa",
+  },
+  {
     code: "en",
     country: "English",
   },
@@ -20,7 +24,7 @@ export const languages = [
     country: "Korea",
   },
   {
-    code: "jv",
+    code: "ja",
     country: "Jepang",
   },
 ];

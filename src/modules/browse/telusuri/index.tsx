@@ -52,13 +52,13 @@ function TelusuriBahasaPage() {
   return (
     <div className="px-4 md:px-16 max-w-full">
       <div className="z-10 bg-body text-white fixed inset-x-0 top-0 px-4 md:px-16 pb-2">
-        <div className="pt-28 flex justify-between ">
+        <div className="pt-28 block md:flex justify-between ">
           <h1 className="text-3xl ">Telusuri menurut Bahasa</h1>
 
           <select
             value={language}
             onChange={(e) => handleLanguageChange(e.target.value)}
-            className="text-white bg-gray-900 hover:bg-stone-900 focus:ring-4 focus:outline-none focus:ring-gray-600 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center "
+            className="mt-3 mb-2 md:mb-0 md:mt-0 text-white bg-gray-900 hover:bg-stone-900 focus:ring-4 focus:outline-none focus:ring-gray-600 font-medium rounded-lg text-sm md:px-4 md:py-2.5 text-center inline-flex items-center "
           >
             {languages.map((item: any, idx: number) => (
               <option key={idx} value={item.code} className="absolute">
@@ -71,7 +71,7 @@ function TelusuriBahasaPage() {
 
       <div className=" flex justify-center items-center  z-0 pt-44">
         {discover?.length ? (
-          <div className="grid grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
             {discover.map((item: any, idx: number) => {
               const Images = BaseUrl + item.poster_path;
               const title = item.title || item.original_name;
